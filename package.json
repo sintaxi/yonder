@@ -4,7 +4,11 @@
   "description": "Redirects for front-end applications. Works on surge.sh",
   "main": "lib/yonder.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "author": "Brock Whitten <brock@chloi.io>"
+  "author": "Brock Whitten <brock@chloi.io>",
+  "devDependencies": {
+    "mocha": "",
+    "should": ""
+  }
 }
