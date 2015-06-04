@@ -1,27 +1,50 @@
 
-var yonder = require("../")
-var should = require("should")
+var createRoute = require("../")
+var should      = require("should")
 
-describe("basic", function(){
+var routes = [
+{
+  route: [302, "/person/:name", "/p/:name"],
+  tests: [
+    ["/", null],
+    ["/person", null],
+    ["/person/", null],
+    ["/person/fred", "/p/fred"]
+  ]
+},
+{
+  route: [301, "/:year/:month/:day/:slug", "/articles/:slug"],
+  tests: [
+    ["/", null],
+    ["/foo", null],
+    ["/2012/09/23/hello-world", "/articles/hello-world"]
+  ]
+}
+]
 
-  it("should return perfect match", function(done){
-    var location = yonder.match("/foo", { "/foo": { url: "/bar", status: 301 } })
-    location.should.have.property("url", "/bar")
-    location.should.have.property("status", 301)
-    done()
+var concat = function(str, len) {
+  var len = len || 40
+  var remainder = len - str.length
+  var padding   = new Array(remainder).join(" ")
+  return str + padding
+}
+
+routes.forEach(function(route){
+  describe("createRoute(" + route.route.join(", ") + ")", function () {
+    var r = createRoute.apply(this, route.route)
+    route.tests.forEach(function(test){
+      it(concat(test[0]) + test[1], function(done){
+        if (test[1]) {
+          r(test[0]).should.eql({
+            pathIn: test[0],
+            pathOut: test[1],
+            route: route.route
+          })
+        } else {
+          should.not.exist(r(test[0]))
+        }
+        done()
+      })
+    })
   })
-
-  it("should return null if no match", function(done){
-    var location = yonder.match("/heyo", { "/foo": { url: "/bar", status: 301 } })
-    should.not.exist(location)
-    done()
-  })
-
-  // it("should return pattern match", function(done){
-  //   var location = yonder.match("/people/fred", { "/people/:name": { url: "/member/:name", status: 301 } })
-  //   location.should.have.property("url", "/member/fred")
-  //   location.should.have.property("status", 301)
-  //   done()
-  // })
-
 })
