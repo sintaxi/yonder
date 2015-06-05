@@ -26,7 +26,7 @@ var routes = [
   route: [301, "/*", "/foo"],
   tests: [
     ["/", "/foo"],
-    ["/foo", "/foo"],
+    ["/foo", null], // we dont want to redirect to the same path
     ["/2012/09/23/hello-world", "/foo"]
   ]
 },
