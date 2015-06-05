@@ -23,6 +23,25 @@ var routes = [
 },
 
 {
+  route: [301, "/*", "/foo"],
+  tests: [
+    ["/", "/foo"],
+    ["/foo", "/foo"],
+    ["/2012/09/23/hello-world", "/foo"]
+  ]
+},
+
+{
+  route: [301, "/foo*", "/bar"],
+  tests: [
+    ["/", null],
+    ["/foo", "/bar"],
+    ["/foobar", "/bar"],
+    ["/2012/09/23/hello-world", null]
+  ]
+},
+
+{
   route: [301, "/foo/+", "/foo/bar/baz"],
   tests: [
     ["/", null],
@@ -36,7 +55,7 @@ var routes = [
 {
   route: [301, "/person?name=:name", "/p/:name"],
   tests: [
-    ["/person?name=fred", "/p/fred"]
+    //["/person?name=fred", "/p/fred"]
   ]
 }
 ]
