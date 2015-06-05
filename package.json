@@ -4,7 +4,7 @@
   "description": "Redirects for front-end applications. Works on surge.sh",
   "main": "lib/yonder.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -R spec"
   },
   "author": "Brock Whitten <brock@chloi.io>",
   "devDependencies": {

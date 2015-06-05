@@ -12,12 +12,31 @@ var routes = [
     ["/person/fred", "/p/fred"]
   ]
 },
+
 {
   route: [301, "/:year/:month/:day/:slug", "/articles/:slug"],
   tests: [
     ["/", null],
     ["/foo", null],
     ["/2012/09/23/hello-world", "/articles/hello-world"]
+  ]
+},
+
+{
+  route: [301, "/foo/+", "/foo/bar/baz"],
+  tests: [
+    ["/", null],
+    ["/foo", null],
+    ["/foo/", null],
+    ["/foo/hello-world", "/foo/bar/baz"],
+    ["/foo/hello/world", "/foo/bar/baz"]
+  ]
+},
+
+{
+  route: [301, "/person?name=:name", "/p/:name"],
+  tests: [
+    ["/person?name=fred", "/p/fred"]
   ]
 }
 ]
@@ -30,7 +49,18 @@ var concat = function(str, len) {
 }
 
 routes.forEach(function(route){
-  describe("createRoute(" + route.route.join(", ") + ")", function () {
+
+  var title = route.route.map(function(r, i){
+    if (i === 0) {
+      return concat(r.toString(), 10)
+    } else if (i === 1) {
+      return concat(r.toString(), 30)
+    } else if (i == 2) {
+      return r
+    }
+  }).join(" ")
+
+  describe(title, function () {
     var r = createRoute.apply(this, route.route)
     route.tests.forEach(function(test){
       it(concat(test[0]) + test[1], function(done){
