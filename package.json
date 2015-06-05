@@ -9,6 +9,8 @@
   "author": "Brock Whitten <brock@chloi.io>",
   "devDependencies": {
     "mocha": "",
-    "should": ""
+    "should": "",
+    "express": "",
+    "request": ""
   }
 }

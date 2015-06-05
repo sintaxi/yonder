@@ -1,6 +1,6 @@
 
-var createRoute = require("../")
-var should      = require("should")
+var yonder = require("../")
+var should = require("should")
 
 var routes = [
 {
@@ -80,7 +80,7 @@ routes.forEach(function(route){
   }).join(" ")
 
   describe(title, function () {
-    var r = createRoute.apply(this, route.route)
+    var r = yonder.createRoute.apply(this, route.route)
     route.tests.forEach(function(test){
       it(concat(test[0]) + test[1], function(done){
         if (test[1]) {

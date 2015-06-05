@@ -1,2 +1,4 @@
 
 302 /articles/:slug /:slug
+
+302 /foo /bar
