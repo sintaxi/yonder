@@ -1,6 +1,6 @@
 {
   "name": "yonder",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Redirects for front-end applications. Works on surge.sh",
   "main": "lib/yonder.js",
   "scripts": {
@@ -8,9 +8,9 @@
   },
   "author": "Brock Whitten <brock@chloi.io>",
   "devDependencies": {
-    "mocha": "",
-    "should": "",
-    "express": "",
-    "request": ""
+    "mocha": "2.2.5",
+    "should": "6.0.3",
+    "express": "4.12.4",
+    "request": "2.57.0"
   }
 }
