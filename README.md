@@ -3,7 +3,7 @@
 
 > a ROUTER for for serving front-end application
 
-Yonder can be used as express middle...
+Yonder can be used as express middleware…
 
     var yonder = require("yonder").middleware
 
