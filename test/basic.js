@@ -62,15 +62,17 @@ var routes = [
 {
   route: [301, "/", "http://chloi.io"],
   tests: [
-    ["/", "http://chloi.io"]
+    ["/", "http://chloi.io"],
+    ["/index.html", "http://chloi.io"]
   ]
 },
 
 {
   route: [307, "/:title", "http://chloi.io/:title"],
   tests: [
-    ["/office", "http://chloi.io/office"],
-    ["/contact", "http://chloi.io/contact"]
+    ["/office/", "http://chloi.io/office/"],
+    ["/contact", "http://chloi.io/contact/"],
+    ["/contact/index.html", "http://chloi.io/contact"]
   ]
 }
 ]
