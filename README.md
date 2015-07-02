@@ -3,7 +3,7 @@
 
 > a ROUTER for for serving front-end application
 
-Yonder can be used as express middle...
+Yonder can be used as express middleware…
 
     var yonder = require("yonder").middleware
 
@@ -19,5 +19,8 @@ Yonder can be used as express middle...
     301     /blog?title=:slug        /articles/:slug
     302     /blog                    http://medium.com/sintaxi
 
+## License
 
+[The MIT License (MIT)](LICENSE.md)
 
+Copyright © 2015 [Chloi Inc.](http://chloi.io) All rights reserved.

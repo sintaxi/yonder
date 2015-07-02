@@ -3,14 +3,20 @@
   "version": "0.1.2",
   "description": "Redirects for front-end applications. Works on surge.sh",
   "main": "lib/yonder.js",
-  "scripts": {
-    "test": "mocha -R spec"
-  },
-  "author": "Brock Whitten <brock@chloi.io>",
+  "license": "MIT",
+  "repository": "https://github.com/sintaxi/yonder",
+  "author": "Brock Whitten <brock@chloi.io>   (http://chloi.io)",
+  "contributors": [
+    "Brock Whitten         <brock@chloi.io>   (http://sintaxi.com)",
+    "Kenneth Ormandy       <kenneth@chloi.io> (http://kennethormandy.com)"
+  ],
   "devDependencies": {
     "mocha": "2.2.5",
     "should": "6.0.3",
     "express": "4.12.4",
     "request": "2.57.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
   }
 }
