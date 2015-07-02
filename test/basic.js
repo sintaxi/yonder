@@ -57,6 +57,21 @@ var routes = [
   tests: [
     //["/person?name=fred", "/p/fred"]
   ]
+},
+
+{
+  route: [301, "/", "http://chloi.io"],
+  tests: [
+    ["/", "http://chloi.io"]
+  ]
+},
+
+{
+  route: [307, "/:title", "http://chloi.io/:title"],
+  tests: [
+    ["/office", "http://chloi.io/office"],
+    ["/contact", "http://chloi.io/contact"]
+  ]
 }
 ]
 
