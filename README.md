@@ -19,5 +19,8 @@ Yonder can be used as express middle...
     301     /blog?title=:slug        /articles/:slug
     302     /blog                    http://medium.com/sintaxi
 
+## License
 
+[The MIT License (MIT)](LICENSE.md)
 
+Copyright © 2015 [Chloi Inc.](http://chloi.io) All rights reserved.
