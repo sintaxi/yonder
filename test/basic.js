@@ -57,24 +57,25 @@ var routes = [
   tests: [
     //["/person?name=fred", "/p/fred"]
   ]
-},
-
-{
-  route: [301, "/", "http://chloi.io"],
-  tests: [
-    ["/", "http://chloi.io"],
-    ["/index.html", "http://chloi.io"]
-  ]
-},
-
-{
-  route: [307, "/:title", "http://chloi.io/:title"],
-  tests: [
-    ["/office/", "http://chloi.io/office/"],
-    ["/contact", "http://chloi.io/contact/"],
-    ["/contact/index.html", "http://chloi.io/contact"]
-  ]
 }
+
+//,
+// {
+//   route: [301, "/*", "http://chloi.io/*"],
+//   tests: [
+//     ["/", "http://chloi.io"],
+//     ["/foo", "http://chloi.io/foo"]
+//   ]
+// },
+
+// {
+//   route: [307, "/:title", "http://chloi.io/:title"],
+//   tests: [
+//     ["/office/", "http://chloi.io/office/"],
+//     ["/contact", "http://chloi.io/contact"],
+//     ["/contact/index.html", "http://chloi.io/contact/index.html"]
+//   ]
+// }
 ]
 
 var concat = function(str, len) {
