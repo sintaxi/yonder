@@ -10,6 +10,9 @@
     "Brock Whitten         <brock@chloi.io>   (http://sintaxi.com)",
     "Kenneth Ormandy       <kenneth@chloi.io> (http://kennethormandy.com)"
   ],
+  "dependencies":{
+    "underscore": ""
+  },
   "devDependencies": {
     "mocha": "2.2.5",
     "should": "6.0.3",

@@ -1,3 +1,13 @@
-301 /privacy /privacy-policy
-301 /terms   /terms-of-use
-302 /blog   http://medium.com/surge-sh
+
+
+
+# old paths
+301 /privacy            /privacy-policy
+301 /terms              /terms-of-use
+
+# new blog
+302 /blog               http://medium.com/surge-sh
+
+# old paths
+301 /articles/:slug     /:slug
+
