@@ -53,11 +53,14 @@ var routes = [
 },
 
 {
-  route: [301, "/person?name=:name", "/p/:name"],
+  route: [301, "/docs*", "/documentation/"],
   tests: [
-    //["/person?name=fred", "/p/fred"]
+    ["/docs", "/documentation/"],
+    ["/docs/", "/documentation/"],
+    ["/docs/?any=params", "/documentation/"],
+    ["/docs?any=params", "/documentation/"]
   ]
-}
+},
 
 //,
 // {
