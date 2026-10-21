@@ -1,6 +1,6 @@
 {
   "name": "yonder",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Redirects for front-end applications. Works on surge.sh",
   "main": "lib/yonder.js",
   "license": "MIT",
