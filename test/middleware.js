@@ -77,3 +77,62 @@ describe("custom middleware", function(){
   })
 
 })
+
+describe("guide middleware", function(){
+
+  // the shape knob hands over: routes parsed at publish, status as strings
+  var port = 9969
+  before(function(done){
+    express()
+      .use(yonder(function(req, rsp, cb){
+        cb([
+          ["301", "/tools/hn-popularity/methodology/", "https://popularity.refactoringenglish.com/about/"],
+          ["301", "/chapters/:chapter/", "/excerpts/:chapter/"],
+          ["301", "/tag/:name", "/tags/:name"]
+        ])
+      }))
+      .use(function(req, rsp){
+        rsp.statusCode = 404
+        rsp.end("not found")
+      })
+      .listen(port, function(){
+        done()
+      })
+  })
+
+  var get = function(path, cb){
+    request.get("http://localhost:" + port + path, { followRedirect: false }, cb)
+  }
+
+  it("should redirect without the trailing slash", function(done){
+    get("/tools/hn-popularity/methodology", function(e,r,b){
+      r.statusCode.should.eql(301)
+      r.headers.should.have.property("location", "https://popularity.refactoringenglish.com/about/")
+      done()
+    })
+  })
+
+  it("should carry the query string", function(done){
+    get("/chapters/one?ref=hn", function(e,r,b){
+      r.statusCode.should.eql(301)
+      r.headers.should.have.property("location", "/excerpts/one/?ref=hn")
+      done()
+    })
+  })
+
+  it("should fall through when nothing matches", function(done){
+    get("/chapters", function(e,r,b){
+      r.statusCode.should.eql(404)
+      done()
+    })
+  })
+
+  it("should not fail on params outside latin-1", function(done){
+    get("/tag/%E2%9C%93", function(e,r,b){
+      r.statusCode.should.eql(301)
+      r.headers.should.have.property("location", "/tags/%E2%9C%93")
+      done()
+    })
+  })
+
+})
