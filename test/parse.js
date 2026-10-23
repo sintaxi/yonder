@@ -15,10 +15,10 @@ describe("file parsing", function(){
     done()
   })
 
-  it("should be greaceful", function(done){
-    var routes = yonder.parse(__dirname + "/examples/ROUTER-non-existing")
-    should.not.exist(routes)
-    done()
+  it("should expose file read errors", function(){
+    should(function(){
+      yonder.parse(__dirname + "/examples/ROUTER-non-existing")
+    }).throw({ code: "ENOENT" })
   })
 
 })
