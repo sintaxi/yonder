@@ -11,6 +11,7 @@
     yonder.route(Array)               // middleware where Array is Array of routes.
     yonder.route(Function)            // middleware where Function returns Array of routes.
     yonder.parse(path/to/ROUTER)      // parses ROUTER file and returns array of routes.
+                                      //   throws on failure to read or parse the file.
 
     // PRIVATE
     yonder._file2routes               // pass in path to ROUTER file
